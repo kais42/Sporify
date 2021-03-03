@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="551.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sportify.AjouterController">
+   <children>
+      <TextField fx:id="titre" layoutX="256.0" layoutY="101.0" onKeyReleased="#validateTitre" prefHeight="26.0" prefWidth="282.0" />
+      <TextArea fx:id="desc" layoutX="256.0" layoutY="150.0" prefHeight="200.0" prefWidth="282.0" />
+      <DatePicker fx:id="dd" layoutX="258.0" layoutY="372.0" prefHeight="26.0" prefWidth="282.0" />
+      <DatePicker fx:id="df" layoutX="258.0" layoutY="425.0" prefWidth="282.0" />
+      <Text layoutX="201.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Titre" />
+      <Text layoutX="165.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
+      <Text layoutX="165.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date debut" />
+      <Text layoutX="180.0" layoutY="442.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date fin" />
+      <Button fx:id="add" layoutX="345.0" layoutY="480.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="37.0" prefWidth="86.0" text="Ajouter" />
+      <Text layoutX="165.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter un evenement" wrappingWidth="179.2000488281251">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
