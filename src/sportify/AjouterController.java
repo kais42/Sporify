@@ -25,6 +25,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import tray.notification.TrayNotification;
+import tray.notification.NotificationType;
 
 /**
  * FXML Controller class
@@ -76,6 +78,15 @@ public class AjouterController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(EventController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        String title = "Succée";
+        String message = "Evenement a été ajouté avec succée";
+        
+        
+
+        NotificationType notification = NotificationType.SUCCESS;
+        TrayNotification tray = new TrayNotification(title, message, notification);
+        tray.showAndWait();
         
     }
 

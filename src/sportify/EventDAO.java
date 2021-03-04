@@ -134,4 +134,40 @@ public class EventDAO {
         return e;
     }
     
+    public ArrayList getStat(){
+        String q1 = "SELECT count(*) as d FROM evenement WHERE date_debut>='2021-01-01' and date_debut<= '2021-03-31'";
+        String q2 = "SELECT count(*) as d FROM evenement WHERE date_debut>='2021-04-01' and date_debut<= '2021-05-30'";
+        String q3 = "SELECT count(*) as d FROM evenement WHERE date_debut>='2021-06-01' and date_debut<= '2021-08-31'";
+        String q4 = "SELECT count(*) as d FROM evenement WHERE date_debut>='2021-09-01' and date_debut<= '2021-12-31'";
+        PreparedStatement preparedStmt1;
+        PreparedStatement preparedStmt2;
+        PreparedStatement preparedStmt3;
+        PreparedStatement preparedStmt4;
+        ArrayList data = new ArrayList();
+        try{
+            preparedStmt1 = connection.prepareStatement(q1);
+            ResultSet rs = preparedStmt1.executeQuery();
+            System.out.print(rs.getInt("d"));
+            data.add(rs.getInt("d"));
+            
+            preparedStmt2 = connection.prepareStatement(q2);
+            ResultSet rs2 = preparedStmt2.executeQuery();
+            data.add(rs2.getInt("d"));
+            
+            preparedStmt3 = connection.prepareStatement(q3);
+            ResultSet rs3 = preparedStmt3.executeQuery();
+            data.add(rs3.getInt("d"));
+            
+            preparedStmt4 = connection.prepareStatement(q4);
+            ResultSet rs4 = preparedStmt4.executeQuery();
+            data.add(rs4.getInt("d"));
+            
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        System.out.print(data);
+        return data;
+        
+    }
+    
 }

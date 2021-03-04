@@ -19,5 +19,6 @@
       </TableView>
       <Button fx:id="ajouter" layoutX="745.0" layoutY="65.0" mnemonicParsing="false" onAction="#ajouterRedirect" text="Ajouter" />
       <TextField fx:id="searchInput" layoutX="87.0" layoutY="65.0" onKeyReleased="#searchAction" prefHeight="26.0" prefWidth="206.0" promptText="Tapez un nom d'evenement" />
+      <Button layoutX="625.0" layoutY="66.0" mnemonicParsing="false" onAction="#redirectStat" prefHeight="26.0" prefWidth="103.0" text="Voir stat" />
    </children>
 </AnchorPane>
