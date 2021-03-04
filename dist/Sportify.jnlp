@@ -8,9 +8,10 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Sportify.jar" size="20394" download="eager" />
+    <jar href="Sportify.jar" size="39554" download="eager" />
     <jar href="lib\TrayNotification.jar" size="41019" download="eager" />
     <jar href="lib\TrayTester.jar" size="52070" download="eager" />
+    <jar href="lib\javax.mail.jar" size="659033" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.13.jar" size="767492" download="eager" />
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="sportify.Sportify"  name="Sportify" />

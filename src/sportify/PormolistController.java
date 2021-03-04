@@ -24,9 +24,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 /**
@@ -34,66 +32,57 @@ import javafx.stage.Stage;
  *
  * @author Kais
  */
-public class EventlistController implements Initializable {
-    
+public class PormolistController implements Initializable {
+
     @FXML
-    private TableView<Event> table;
+    private TableView<Promotion> table;
     @FXML
-    private TableColumn<Event, Integer> id;
-    
+    private TableColumn<Promotion, String> titre;
     @FXML
-    private TableColumn<Event, Date> dd;
-    
+    private TableColumn<Promotion, String> desc;
     @FXML
-    private TableColumn<Event,Date> df;
-    
+    private TableColumn<Promotion, Date> dd;
     @FXML
-    private TableColumn<Event, String> titre;
-    
-  
+    private TableColumn<Promotion, Date> df;
     @FXML
-    private TableColumn<Event, String> desc;
+    private TableColumn<Promotion, Integer> per;
     
-    ObservableList<Event> events;
+    ObservableList<Promotion> promos;
     
-    private TableColumn<Event, String> actionCol = new TableColumn("Action");
-    private TableColumn<Event, String> modifCol = new TableColumn("Modifier");
+    private TableColumn<Promotion, String> actionCol = new TableColumn("Action");
     
-    EventDAO dao = new EventDAO();
+    PromotioDAO dao = new PromotioDAO();
     @FXML
-    private Button ajouter;
-    @FXML
-    private TextField searchInput;
-    
+    private Button add;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        ArrayList<Promotion> promotions = dao.findAll();
+        
         table.getColumns().add(actionCol);
-        id.setCellValueFactory(new PropertyValueFactory<>("id"));
         titre.setCellValueFactory(new PropertyValueFactory<>("titre"));
         desc.setCellValueFactory(new PropertyValueFactory<>("description"));
         dd.setCellValueFactory(new PropertyValueFactory<>("dateDebut"));
         df.setCellValueFactory(new PropertyValueFactory<>("dateFin"));
-        actionCol.setCellValueFactory(new PropertyValueFactory<Event, String>("action"));
-        ArrayList<Event> events = dao.findAll();
+        per.setCellValueFactory(new PropertyValueFactory<>("pourcentage"));
+        actionCol.setCellValueFactory(new PropertyValueFactory<Promotion, String>("action"));
         
-       
-     
-        for(Event ev: events){
+        for(Promotion ev: promotions){
             ev.getAction().setOnAction(e -> {
                 
                 Stage stage = new Stage();
-               FXMLLoader loader = new FXMLLoader(getClass().getResource("event.fxml"));
+               FXMLLoader loader = new FXMLLoader(getClass().getResource("modifierpromo.fxml"));
                Parent parent;
                     try {
                         parent = (Parent) loader.load();
                         Scene scene = new Scene(parent);
                         stage.setScene(scene);
                         stage.show();
-                        EventController controller = loader.getController();
+                        ModifierpromoController controller = loader.getController();
                         controller.initData(ev);
                         Stage parentStage = (Stage) ev.getAction().getScene().getWindow();
                         parentStage.close();
@@ -104,73 +93,32 @@ public class EventlistController implements Initializable {
         
         }
         
-        
-        
-        ObservableList<Event> listevent = FXCollections.observableArrayList(events);
-        table.setItems(listevent);
-        
-        
+        ObservableList<Promotion> listp = FXCollections.observableArrayList(promotions);
+       table.setItems(listp);
         // TODO
-    }  
-    
-    
+    }    
+
+//    @FXML
+//    private void promoRedirect(ActionEvent event) {
+//        Stage stage = new Stage();
+//        Parent home;
+//        try {
+//            home = FXMLLoader.load(getClass().getResource("pormolist.fxml"));
+//            Scene homescene = new Scene(home);
+//            Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//            app_stage.setScene(homescene);
+//            app_stage.show();
+//        } catch (IOException ex) {
+//            Logger.getLogger(EventlistController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
+
     @FXML
-    private void ajouterRedirect(ActionEvent event) {
+    private void addRedirect(ActionEvent event) {
         Stage stage = new Stage();
         Parent home;
         try {
-            home = FXMLLoader.load(getClass().getResource("ajouter.fxml"));
-            Scene homescene = new Scene(home);
-            Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            app_stage.setScene(homescene);
-            app_stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(EventlistController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
-
-    @FXML
-    private void searchAction(KeyEvent event) {
-        
-        ArrayList<Event> events = dao.findByTitre(searchInput.getText());
-        
-       
-     
-        for(Event ev: events){
-            ev.getAction().setOnAction(e -> {
-                
-                Stage stage = new Stage();
-               FXMLLoader loader = new FXMLLoader(getClass().getResource("event.fxml"));
-               Parent parent;
-                    try {
-                        parent = (Parent) loader.load();
-                        Scene scene = new Scene(parent);
-                        stage.setScene(scene);
-                        stage.show();
-                        EventController controller = loader.getController();
-                        controller.initData(ev);
-                        Stage parentStage = (Stage) ev.getAction().getScene().getWindow();
-                        parentStage.close();
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
-            });
-        
-        }
-        
-        
-        
-        ObservableList<Event> listevent = FXCollections.observableArrayList(events);
-        table.setItems(listevent);
-    }
-
-    @FXML
-    private void redirectStat(ActionEvent event) {
-        Stage stage = new Stage();
-        Parent home;
-        try {
-            home = FXMLLoader.load(getClass().getResource("stat.fxml"));
+            home = FXMLLoader.load(getClass().getResource("Ajoutpromotion.fxml"));
             Scene homescene = new Scene(home);
             Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             app_stage.setScene(homescene);
@@ -179,8 +127,6 @@ public class EventlistController implements Initializable {
             Logger.getLogger(EventlistController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-   
 
     @FXML
     private void promoRedirect(ActionEvent event) {
@@ -211,6 +157,5 @@ public class EventlistController implements Initializable {
             Logger.getLogger(EventlistController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    }
     
-
+}

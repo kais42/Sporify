@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -110,4 +111,35 @@ void initData(Event e) {
         df.setText(String.valueOf(e.getDateFin()));
         this.id = e.getId();
   }    
+
+       @FXML
+    private void promoRedirect(ActionEvent event) {
+        Stage stage = new Stage();
+        Parent home;
+        try {
+            home = FXMLLoader.load(getClass().getResource("pormolist.fxml"));
+            Scene homescene = new Scene(home);
+            Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            app_stage.setScene(homescene);
+            app_stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(EventlistController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void eventRedirect(ActionEvent event) {
+        Stage stage = new Stage();
+        Parent home;
+        try {
+            home = FXMLLoader.load(getClass().getResource("eventlist.fxml"));
+            Scene homescene = new Scene(home);
+            Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            app_stage.setScene(homescene);
+            app_stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(EventlistController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
 }

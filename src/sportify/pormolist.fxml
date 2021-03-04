@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="523.0" prefWidth="986.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sportify.PormolistController">
+   <children>
+      <TableView fx:id="table" layoutX="218.0" layoutY="55.0" prefHeight="425.0" prefWidth="732.0">
+        <columns>
+          <TableColumn fx:id="titre" prefWidth="111.20001220703125" text="Titre" />
+          <TableColumn fx:id="desc" prefWidth="101.5999755859375" text="Description" />
+            <TableColumn fx:id="dd" prefWidth="132.79995727539062" text="Date Debut" />
+            <TableColumn fx:id="df" prefWidth="126.39996337890625" text="Date fin" />
+            <TableColumn fx:id="per" prefWidth="135.20001220703125" text="Pourcentage" />
+        </columns>
+      </TableView>
+      <Button fx:id="add" layoutX="898.0" layoutY="14.0" mnemonicParsing="false" onAction="#addRedirect" style="-fx-background-color: #6be38d;" text="Ajouter" />
+      <AnchorPane layoutY="11.0" prefHeight="513.0" prefWidth="200.0">
+         <children>
+            <Button layoutX="2.0" layoutY="-11.0" mnemonicParsing="false" onAction="#eventRedirect" prefHeight="261.0" prefWidth="196.0" style="-fx-background-color: #42bcf5;" text="Event" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Button>
+            <Button layoutX="-2.0" layoutY="257.0" mnemonicParsing="false" onAction="#promoRedirect" prefHeight="262.0" prefWidth="200.0" style="-fx-background-color: #42bcf5;" text="Promo" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

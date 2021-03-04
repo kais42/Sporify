@@ -21,7 +21,7 @@ public class Sportify extends Application {
     public void start(Stage stage) throws Exception {
         EventDAO dao = new EventDAO();
         System.out.println(dao.findAll().get(0));
-        Parent root = FXMLLoader.load(getClass().getResource("eventlist.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("pormolist.fxml"));
         
         Scene scene = new Scene(root);
         

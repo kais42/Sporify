@@ -19,77 +19,34 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import tray.notification.TrayNotification;
 import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 /**
  * FXML Controller class
  *
  * @author Kais
  */
-public class AjouterController implements Initializable {
-    
-    @FXML
-    DatePicker dd;
-    
-    @FXML
-    DatePicker df;
-    
+public class AjoutpromotionController implements Initializable {
+
     @FXML
     private TextField titre;
-    
+    @FXML
+    private TextField per;
     @FXML
     private TextArea desc;
     @FXML
-    private Button add;
-    
-   
-    
+    private DatePicker dd;
     @FXML
-    public void ajouter(ActionEvent event){
-        
-        java.sql.Date dateD = java.sql.Date.valueOf(dd.getValue());
-        java.sql.Date dateF= java.sql.Date.valueOf(df.getValue());
-        
-        Event e = new Event();
-        
-        e.setDateDebut(dateD);
-        e.setDateFin(dateF);
-        e.setTitre(titre.getText());
-        e.setDescription(desc.getText());        
-        EventDAO dao = new EventDAO();     
-        dao.save(e);
-        Stage stage = (Stage) add.getScene().getWindow();
-    // do what you have to do
-        stage.close();
-        Parent root;
-        try {
-            root = FXMLLoader.load(getClass().getResource("eventlist.fxml"));
-            Scene scene = new Scene(root);
-        
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(EventController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        String title = "Succée";
-        String message = "Evenement a été ajouté avec succée";
-        
-        
-
-        NotificationType notification = NotificationType.SUCCESS;
-        TrayNotification tray = new TrayNotification(title, message, notification);
-        tray.showAndWait();
-        
-    }
+    private DatePicker df;
+    PromotioDAO dao = new PromotioDAO();
+    @FXML
+    private Button add;
 
     /**
      * Initializes the controller class.
@@ -100,35 +57,64 @@ public class AjouterController implements Initializable {
     }    
 
     @FXML
-    private void validateTitre(KeyEvent event) {
-        if(!titre.getText().matches("[a-z]+")){
-            titre.clear();
+    private void ajouterp(ActionEvent event) {
+        
+         java.sql.Date dateD = java.sql.Date.valueOf(dd.getValue()); 
+        java.sql.Date dateF= java.sql.Date.valueOf(df.getValue());
+        
+        Promotion e = new Promotion();
+        
+        e.setDateDebut(dateD);
+        e.setDateFin(dateF);
+        e.setTitre(titre.getText());
+        e.setDescription(desc.getText()); 
+        e.setPourcentage(Integer.valueOf(per.getText())); 
+        dao.save(e);
+        Stage stage = (Stage) add.getScene().getWindow();
+    // do what you have to do
+        stage.close();
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getResource("pormolist.fxml"));
+            Scene scene = new Scene(root);
+        
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(EventController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        String title = "Succée";
+        String message = "promotion a été ajouté avec succée";
+        
+        
+
+        NotificationType notification = NotificationType.SUCCESS;
+        TrayNotification tray = new TrayNotification(title, message, notification);
+        tray.showAndWait();
+    }
+
+
+    @FXML
+    private void validatePer(KeyEvent event) {
+        if(!per.getText().matches("[0-9]+")) {
+            per.clear();
             Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setHeaderText("Alert");
-                    alert.setContentText("utilisez seulement des caractères alphabetique");
+                    alert.setContentText("utilisez seulement des chiffre");
                     alert.showAndWait();
         }
         
-    }
-
-    @FXML
-    private void redirectStat(ActionEvent event) {
-        Stage stage = new Stage();
-        Parent home;
-        try {
-            home = FXMLLoader.load(getClass().getResource("stat.fxml"));
-            Scene homescene = new Scene(home);
-            Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            app_stage.setScene(homescene);
-            app_stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(EventlistController.class.getName()).log(Level.SEVERE, null, ex);
+        if(Integer.valueOf(per.getText())>100){
+            per.clear();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setHeaderText("Alert");
+                    alert.setContentText("cette valeur ne doit pas depasser 100");
+                    alert.showAndWait();
         }
     }
 
-   
-
-    @FXML
+     @FXML
     private void promoRedirect(ActionEvent event) {
         Stage stage = new Stage();
         Parent home;
