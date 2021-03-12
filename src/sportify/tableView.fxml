@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="637.0" prefWidth="978.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tableView.TableViewController">
+    <stylesheets>
+        <URL value="@tableview.css" />
+    </stylesheets>
+   <children>
+      <TableView fx:id="coursTable" layoutX="83.0" layoutY="200.0" prefHeight="398.0" prefWidth="771.0">
+        <columns>
+          <TableColumn fx:id="idCol" maxWidth="70.0" prefWidth="70.0" text="ID" />
+          <TableColumn fx:id="nomCol" minWidth="0.0" prefWidth="219.0" text="NOM DU COURS" />
+            <TableColumn fx:id="categCol" minWidth="0.0" prefWidth="150.0" text="CATEGORIE" />
+            <TableColumn fx:id="niveauCol" minWidth="0.0" prefWidth="131.0" text="NIVEAU" />
+            <TableColumn fx:id="dureeCol" minWidth="0.0" prefWidth="90.0" text="DUREE(mn)" />
+            <TableColumn fx:id="editCol" maxWidth="228.0" minWidth="0.0" prefWidth="110.0" text="TOOLS" />
+        </columns>
+      </TableView>
+      <Pane layoutY="74.0" prefHeight="1.0" prefWidth="979.0" style="-fx-background-color: black;" />
+      <Text layoutX="14.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Details Cours">
+         <font>
+            <Font name="Bauhaus 93" size="43.0" />
+         </font>
+      </Text>
+      <TextField fx:id="filterField" layoutX="760.0" layoutY="156.0" />
+      <HBox layoutX="36.0" layoutY="131.0" prefHeight="62.0" prefWidth="424.0">
+         <children>
+            <FontAwesomeIconView fill="#5ba4e4" glyphName="USER_PLUS" onMouseClicked="#getAddView" size="50" styleClass="mainFxmlClass">
+               <HBox.margin>
+                  <Insets left="60.0" />
+               </HBox.margin>
+            </FontAwesomeIconView>
+            <FontAwesomeIconView fill="#48e11e" glyphName="REFRESH" layoutX="10.0" layoutY="53.0" onMouseClicked="#refreshTable" size="50" styleClass="mainFxmlClass">
+               <HBox.margin>
+                  <Insets left="60.0" />
+               </HBox.margin>
+            </FontAwesomeIconView>
+            <FontAwesomeIconView glyphName="ENVELOPE" onMouseClicked="#print" size="50" wrappingWidth="14.0">
+               <HBox.margin>
+                  <Insets left="70.0" />
+               </HBox.margin>
+            </FontAwesomeIconView>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="925.0" layoutY="26.71428680419922" />
+      <FontAwesomeIconView glyphName="CLOSE" layoutX="935.0" layoutY="36.0" onMouseClicked="#close" size="30" styleClass="mainFxmlClass" text="" wrappingWidth="23.571428298950195" />
+      <Label layoutX="694.0" layoutY="162.0" text="Search">
+         <font>
+            <Font name="Bauhaus 93" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

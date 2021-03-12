@@ -1,0 +1,10 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+    .btn:hover{
+        -fx-cursor: hand;
+    }
+
+}
