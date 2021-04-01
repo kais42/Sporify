@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="505.0" prefWidth="1028.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sportify.TableViewController">
+    <stylesheets>
+        <URL value="@tableview.css" />
+    </stylesheets>
+   <children>
+      <TableView fx:id="coursTable" layoutX="241.0" layoutY="173.0" prefHeight="327.0" prefWidth="768.0">
+        <columns>
+          <TableColumn fx:id="idCol" maxWidth="70.0" prefWidth="53.0" text="ID" />
+          <TableColumn fx:id="nomCol" minWidth="0.0" prefWidth="245.0" text="NOM DU COURS" />
+            <TableColumn fx:id="categCol" minWidth="0.0" prefWidth="138.0" text="CATEGORIE" />
+            <TableColumn fx:id="niveauCol" minWidth="0.0" prefWidth="123.0" text="NIVEAU" />
+            <TableColumn fx:id="dureeCol" minWidth="0.0" prefWidth="90.0" text="DUREE(mn)" />
+            <TableColumn fx:id="editCol" maxWidth="228.0" minWidth="0.0" prefWidth="121.0" text="TOOLS" />
+        </columns>
+      </TableView>
+      <AnchorPane layoutX="209.0" layoutY="-3.0" prefHeight="101.0" prefWidth="819.0" style="-fx-background-color: #dedede;">
+         <children>
+            <FontAwesomeIconView glyphName="CLOSE" layoutX="765.0" layoutY="61.0" onMouseClicked="#close" size="30" styleClass="mainFxmlClass" text="" wrappingWidth="23.571428298950195" />
+         </children></AnchorPane>
+      <AnchorPane prefHeight="519.0" prefWidth="216.0" style="-fx-background-color: #65d2e6;">
+         <children>
+            <VBox layoutX="14.0" layoutY="14.0" prefHeight="489.0" prefWidth="178.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#eventRedirect" prefHeight="69.0" prefWidth="178.0">
+                     <children>
+                        <ImageView fitHeight="37.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/76931541_862746537475073_1999362329178800128_n.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="59.0" text="Event" textFill="WHITE">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="71.0" prefWidth="178.0">
+                     <children>
+                        <ImageView fitHeight="44.0" fitWidth="45.0" onMouseClicked="#redirectevent" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/96377513_228237518628394_4383626454760423424_n.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="TOP_RIGHT" prefHeight="34.0" prefWidth="99.0" text="Nutrisoniste" textFill="WHITE">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#coursRedirect" prefHeight="66.0" prefWidth="178.0">
+                     <children>
+                        <ImageView fitHeight="35.0" fitWidth="40.0" onMouseClicked="#redirectevent" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/50072491_334200950519923_2615387173456707584_n.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="62.0" text="Cours" textFill="WHITE">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#promoRedirect" prefHeight="74.0" prefWidth="178.0">
+                     <children>
+                        <ImageView fitHeight="35.0" fitWidth="40.0" onMouseClicked="#redirectevent" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/84797561_500217524247080_4463394902369107968_n.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="98.0" text="Promotion" textFill="WHITE">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#coachRedirect" prefHeight="69.0" prefWidth="178.0">
+                     <children>
+                        <ImageView fitHeight="35.0" fitWidth="40.0" onMouseClicked="#redirectevent" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/166832743_186134159798239_5627999576669343347_n.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="63.0" text="Coach" textFill="WHITE">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#abonnementRedirect" prefHeight="75.0" prefWidth="178.0">
+                     <children>
+                        <ImageView fitHeight="35.0" fitWidth="40.0" onMouseClicked="#redirectevent" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/167107939_158007286100610_5851228863325943918_n.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="111.0" text="Abonnement" textFill="WHITE">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#userRedirect" prefHeight="55.0" prefWidth="178.0">
+                     <children>
+                        <ImageView fitHeight="35.0" fitWidth="40.0" onMouseClicked="#redirectevent" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/167432623_443912563604031_3569154307758774092_n.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="62.0" text="Users " textFill="WHITE">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <Text fill="WHITE" layoutX="268.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Details Cours">
+         <font>
+            <Font name="Arial Bold" size="43.0" />
+         </font>
+      </Text>
+      <TextField fx:id="filterField" layoutX="821.0" layoutY="134.0" />
+      <HBox layoutX="214.0" layoutY="112.0" prefHeight="62.0" prefWidth="477.0">
+         <children>
+            <FontAwesomeIconView fill="#5ba4e4" glyphName="USER_PLUS" onMouseClicked="#getAddView" size="50" styleClass="mainFxmlClass">
+               <HBox.margin>
+                  <Insets left="60.0" />
+               </HBox.margin>
+            </FontAwesomeIconView>
+            <FontAwesomeIconView fill="#48e11e" glyphName="REFRESH" layoutX="10.0" layoutY="53.0" onMouseClicked="#refreshTable" size="50" styleClass="mainFxmlClass">
+               <HBox.margin>
+                  <Insets left="60.0" />
+               </HBox.margin>
+            </FontAwesomeIconView>
+            <FontAwesomeIconView glyphName="ENVELOPE" onMouseClicked="#print" size="50" wrappingWidth="14.0">
+               <HBox.margin>
+                  <Insets left="70.0" />
+               </HBox.margin>
+            </FontAwesomeIconView>
+            <FontAwesomeIconView glyphName="PLAY" onMouseClicked="#playit" size="50" wrappingWidth="43.0">
+               <HBox.margin>
+                  <Insets left="100.0" />
+               </HBox.margin>
+            </FontAwesomeIconView>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="925.0" layoutY="26.71428680419922" />
+      <Label layoutX="757.0" layoutY="139.0" text="Search">
+         <font>
+            <Font name="Bauhaus 93" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
