@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.InterLoginController">
+   <children>
+      <TextField fx:id="txtlogin" layoutX="434.0" layoutY="127.0" />
+      <TextField fx:id="txtpwd" layoutX="434.0" layoutY="188.0" />
+      <Button fx:id="cnx" layoutX="473.0" layoutY="251.0" mnemonicParsing="false" onAction="#cnxaction" text="Connectez-Vous" />
+      <Label layoutX="305.0" layoutY="130.0" text="Nom-utulisateur" textFill="#0a0a0a">
+         <font>
+            <Font name="Arial Black" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="316.0" layoutY="190.0" text="Mot de passe" textFill="#1b0303">
+         <font>
+            <Font name="Arial Black" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

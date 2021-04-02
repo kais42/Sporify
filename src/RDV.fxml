@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="493.0" prefWidth="746.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RDV.RDVController">
+   <children>
+      <TextField fx:id="nomId" layoutX="117.0" layoutY="68.0" prefHeight="25.0" prefWidth="200.0" />
+      <TextField fx:id="prenomId" layoutX="117.0" layoutY="111.0" prefHeight="25.0" prefWidth="200.0" />
+      <TextArea fx:id="DescId" layoutX="117.0" layoutY="243.0" prefHeight="108.0" prefWidth="200.0" />
+      <TextField fx:id="emailId" disable="true" layoutX="117.0" layoutY="155.0" prefHeight="25.0" prefWidth="200.0" />
+      <Label layoutX="26.0" layoutY="68.0" text="Nom" />
+      <Label layoutX="26.0" layoutY="115.0" text="Prenom" />
+      <Label layoutX="26.0" layoutY="159.0" text="Email" />
+      <Label layoutX="27.0" layoutY="243.0" text="Description" />
+      <Label layoutX="26.0" layoutY="200.0" text="Date de RDV" />
+      <DatePicker fx:id="dateId" layoutX="117.0" layoutY="196.0" prefHeight="25.0" prefWidth="200.0" />
+      <Label ellipsisString="342.13671875" layoutX="141.0" layoutY="4.0" text="Prendre Rendez-Vous ">
+         <font>
+            <Font name="Bauhaus 93" size="32.0" />
+         </font></Label>
+      <HBox alignment="TOP_CENTER" layoutX="-4.0" layoutY="3.0" prefHeight="40.0" prefWidth="53.0">
+         <children>
+            <FontAwesomeIconView fx:id="homePage" fill="#0d10d9" glyphName="HOME" layoutX="101.0" layoutY="47.0" onMouseClicked="#goHome" size="45" text="" wrappingWidth="37.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="79.0" layoutY="2.0" prefHeight="46.0" prefWidth="46.0">
+         <children>
+            <FontAwesomeIconView fx:id="goRDV" fill="#0d10d9" glyphName="MAIL_REPLY" onMouseClicked="#goRDV" size="40" text="" wrappingWidth="35.0" />
+         </children>
+      </HBox>
+      <HBox fx:id="send" layoutX="344.0" layoutY="310.0" prefHeight="82.0" prefWidth="78.0" />
+      <Button fx:id="sendId" layoutX="249.0" layoutY="367.0" mnemonicParsing="false" onAction="#sendMail" prefHeight="25.0" prefWidth="68.0" text="Envoyer" />
+      <FontAwesomeIconView fx:id="closeid" glyphName="CLOSE" layoutX="698.0" layoutY="22.0" onMouseClicked="#close" size="20" styleClass="btn" text="" />
+   </children>
+</AnchorPane>

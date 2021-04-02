@@ -1,0 +1,4 @@
+.root{
+    -fx-background-image: url('regime.jpg');
+    -fx-background-size: cover;
+}

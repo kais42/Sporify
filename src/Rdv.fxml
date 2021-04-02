@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="493.0" prefWidth="840.0" stylesheets="@tableview.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OperationRDV.Rdv">
+   <children>
+      <TableView fx:id="RdvTable" layoutX="190.0" layoutY="147.0" prefHeight="356.0" prefWidth="621.0">
+        <columns>
+          <TableColumn fx:id="id_rdv" maxWidth="70.0" prefWidth="56.0" style="-fx-alignment: center;" text="id_rdv" />
+          <TableColumn fx:id="iduser" maxWidth="117.0" prefWidth="117.0" style="-fx-alignment: center;" text="Nom Nutritionniste" />
+            <TableColumn fx:id="idnut" maxWidth="183.0" prefWidth="183.0" style="-fx-alignment: center;" text="Nom Adherent" />
+            <TableColumn fx:id="date" maxWidth="254.0" prefWidth="179.0" style="-fx-alignment: center;" text="Date Rendez-Vous" />
+            <TableColumn fx:id="editCol" maxWidth="257.0" prefWidth="141.0" style="-fx-alignment: center;" text="OPERATION" />
+        </columns>
+      </TableView>
+      <Text layoutX="459.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rendez-vous Details" wrappingWidth="342.13671875">
+         <font>
+            <Font name="Bauhaus 93" size="32.0" />
+         </font>
+      </Text>
+      <HBox alignment="CENTER" layoutX="602.0" layoutY="-1.0" prefHeight="36.0" prefWidth="37.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <FontAwesomeIconView glyphName="CLOSE" onMouseClicked="#close" size="20" styleClass="btn" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="42.0" layoutY="45.0" prefHeight="76.0" prefWidth="118.0" />
+      <FontAwesomeIconView fx:id="homeId" fill="#0d10d9" glyphName="HOME" layoutX="190.0" layoutY="45.0" onMouseClicked="#goHome" size="45" text="" />
+      <TextField fx:id="rechId" layoutX="606.0" layoutY="86.0" />
+      <FontAwesomeIconView fx:id="searchId" glyphName="SEARCH" layoutX="765.0" layoutY="105.0" onMouseClicked="#searchName" size="18.0" text="" />
+      <Label layoutX="541.0" layoutY="89.0" text="Search">
+         <font>
+            <Font name="Bauhaus 93" size="18.0" />
+         </font>
+      </Label>
+      <FontAwesomeIconView fx:id="refresh" fill="#00e676" glyphName="REFRESH" layoutX="267.0" layoutY="125.0" onMouseClicked="#refreshTable" size="45" styleClass="btn" text="" />
+      <FontAwesomeIconView fx:id="add" fill="#2196f3" glyphName="USER_PLUS" layoutX="198.0" layoutY="123.0" onMouseClicked="#getAddView" size="45" styleClass="btn" text="" />
+      <AnchorPane layoutX="-2.0" layoutY="1.0" prefHeight="514.0" prefWidth="149.0" style="-fx-background-color: #65d2e6;">
+         <children>
+            <VBox layoutX="14.0" layoutY="14.0" prefHeight="489.0" prefWidth="178.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#eventRedirect" prefHeight="69.0" prefWidth="178.0">
+                     <children>
+                        <ImageView fitHeight="37.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Sporify-Obaid-Kais-Hedi-Semeh-Anas/Sporify-Last/src/icons/76931541_862746537475073_1999362329178800128_n.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="59.0" text="Event" textFill="WHITE">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="71.0" prefWidth="178.0">
+                     <children>
+                        <ImageView fitHeight="44.0" fitWidth="45.0" onMouseClicked="#redirectevent" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Sporify-Obaid-Kais-Hedi-Semeh-Anas/Sporify-Last/src/icons/96377513_228237518628394_4383626454760423424_n.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="nut" alignment="TOP_RIGHT" onMouseClicked="#nut_login" prefHeight="34.0" prefWidth="99.0" text="Nutrisoniste" textFill="WHITE">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#coursRedirect" prefHeight="66.0" prefWidth="178.0">
+                     <children>
+                        <ImageView fitHeight="35.0" fitWidth="40.0" onMouseClicked="#redirectevent" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Sporify-Obaid-Kais-Hedi-Semeh-Anas/Sporify-Last/src/icons/50072491_334200950519923_2615387173456707584_n.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="62.0" text="Cours" textFill="WHITE">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#promoRedirect" prefHeight="74.0" prefWidth="178.0">
+                     <children>
+                        <ImageView fitHeight="35.0" fitWidth="40.0" onMouseClicked="#redirectevent" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Sporify-Obaid-Kais-Hedi-Semeh-Anas/Sporify-Last/src/icons/84797561_500217524247080_4463394902369107968_n.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="98.0" text="Promotion" textFill="WHITE">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#coachRedirect" prefHeight="69.0" prefWidth="178.0">
+                     <children>
+                        <ImageView fitHeight="35.0" fitWidth="40.0" onMouseClicked="#redirectevent" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Sporify-Obaid-Kais-Hedi-Semeh-Anas/Sporify-Last/src/icons/166832743_186134159798239_5627999576669343347_n.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="63.0" text="Coach" textFill="WHITE">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#abonnementRedirect" prefHeight="75.0" prefWidth="178.0">
+                     <children>
+                        <ImageView fitHeight="35.0" fitWidth="40.0" onMouseClicked="#redirectevent" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Sporify-Obaid-Kais-Hedi-Semeh-Anas/Sporify-Last/src/icons/167107939_158007286100610_5851228863325943918_n.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="111.0" text="Abonnement" textFill="WHITE">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#userRedirect" prefHeight="55.0" prefWidth="178.0">
+                     <children>
+                        <ImageView fitHeight="35.0" fitWidth="40.0" onMouseClicked="#redirectevent" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Sporify-Obaid-Kais-Hedi-Semeh-Anas/Sporify-Last/src/icons/167432623_443912563604031_3569154307758774092_n.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="62.0" text="Users " textFill="WHITE">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+     
+   </children>
+   <styleClass>
+      <String fx:value="mainFxmlClass" />
+      <String fx:value="table-view" />
+   </styleClass>
+</AnchorPane>
